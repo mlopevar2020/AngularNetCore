@@ -1,0 +1,20 @@
+<div class="tree-demo-app">
+  <div class="tree-demo-app">
+    <div class="tree-container">
+      <div class="tree-info"><p class="tree-title">ADMN Project Selector</p></div>
+      <div class="tree-content">
+        <tree #admnTree
+              [tree]="tree"
+              (menuItemSelected)="onMenuItemSelected($event)"
+              (nodeRemoved)="onNodeRemoved($event)"
+              (nodeRenamed)="onNodeRenamed($event)"
+              (nodeSelected)="onNodeSelected($event)"
+              (nodeMoved)="onNodeMoved($event)"
+              (nodeCreated)="onNodeCreated($event)"
+              (nodeExpanded)="onNodeExpanded($event)"
+              (nodeCollapsed)="onNodeCollapsed($event)">
+        </tree>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<h2>My Champions</h2>
+<ul class="champions">
+  <li *ngFor="let champion of champions">
+    <a routerLink="/detail/{{champion.id}}">
+      <span class="badge">{{champion.id}}</span> {{champion.name}}
+    </a>
+  </li>
+</ul>

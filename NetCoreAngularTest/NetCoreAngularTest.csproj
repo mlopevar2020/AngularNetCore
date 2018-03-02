@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TypeScriptCompiledBlocked>true</TypeScriptCompiledBlocked>
+    <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="src\app\button.ts" />
+    <None Remove="src\app\champion.ts" />
+    <None Remove="src\app\mock-champions.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+    <PackageReference Include="Microsoft.DotNet.Watcher.Tools" Version="2.0.0" />
+    <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="2.0.0-preview2-final" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="src\app\button.ts" />
+    <TypeScriptCompile Include="src\app\champion.ts" />
+    <TypeScriptCompile Include="src\app\mock-champions.ts" />
+  </ItemGroup>
+
+  <Target Name="Build Angular" Condition="'$(Configuration)'=='Release'" BeforeTargets="Build">
+    <Message Text="* * * * * * Building Angular App * * * * * *" Importance="high" />
+    <Exec Command="ng build -prod -aot" />
+  </Target>
+
+</Project>
